@@ -3,7 +3,7 @@
     <title>Cr4O13.github.io</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-09T23:52:15+01:00</updated>
+    <updated>2021-12-10T00:21:58+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -20,17 +20,17 @@
             <category term="Home"/>
             <category term="GCI"/>
 
-        <updated>2021-12-09T23:52:15+01:00</updated>
+        <updated>2021-12-10T00:21:58+01:00</updated>
             <summary>
                 <![CDATA[
-                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses and help keeping the axis configuration readable. Before BETA 7 an axis output response had to be specified literally in&hellip;
+                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses and help keeping the axis configuration readable. Before BETA 7 an axis output response had to be defined literally in&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                 <p>GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications.</p>
 <p>Response presets support reuse of responses and help keeping the axis configuration readable.</p>
-<p>Before BETA 7 an axis output response had to be specified literally in the axis spec:</p>
+<p>Before BETA 7 an axis output response had to be defined literally in the axis specification:</p>
 <pre><code>{ &quot;axis&quot;: [
   { &quot;id&quot;: [ 2, &quot;Pedal Rotation&quot; ], 
     &quot;write&quot;: [ &quot;RUDDER POSITION&quot;, &quot;Position&quot;, { 
@@ -59,7 +59,7 @@
 }
 </code></pre>
 <h3 id="response-preset-definition">Response Preset Definition</h3>
-<p>Starting from BETA 7 the response preset itself must be defined in a defaults ‘responses’ specification with a preset name and the response settings:</p>
+<p>Starting from BETA 7 multiple response presets can be defined in a <code>responses</code> list  placed in the <code>defaults</code> specification. The preset must provide a preset <code>name</code> and the <code>response settings</code> as usual:</p>
 <pre><code>&quot;defaults&quot;: {
   &quot;responses&quot;: {
     &quot;flight-controls&quot;: [
