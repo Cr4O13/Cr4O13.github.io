@@ -3,7 +3,7 @@
     <title>Cr4O13.github.io</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-09T23:45:55+01:00</updated>
+    <updated>2021-12-09T23:52:15+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -20,7 +20,7 @@
             <category term="Home"/>
             <category term="GCI"/>
 
-        <updated>2021-12-09T23:45:55+01:00</updated>
+        <updated>2021-12-09T23:52:15+01:00</updated>
             <summary>
                 <![CDATA[
                     GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses and help keeping the axis configuration readable. Before BETA 7 an axis output response had to be specified literally in&hellip;
@@ -116,7 +116,7 @@
     ...
 }
 </code></pre>
-<p>In the defaults responses specification can reference the file name:</p>
+<p>In the defaults specification the responses field just references the file name:</p>
 <pre><code>&quot;defaults&quot;: {
   &quot;responses&quot;: &quot;responses.json&quot;
 }
