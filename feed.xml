@@ -3,7 +3,7 @@
     <title>Cr4O13</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-10T20:17:54+01:00</updated>
+    <updated>2021-12-10T20:59:40+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://Cr4O13.github.io/start-with-gci-from-cold-and-dark.html"/>
         <id>https://Cr4O13.github.io/start-with-gci-from-cold-and-dark.html</id>
 
-        <updated>2021-12-10T20:17:54+01:00</updated>
+        <updated>2021-12-10T20:59:40+01:00</updated>
             <summary>
                 <![CDATA[
                     If you have no clue how to get started with GCI, this might be for you. Follow the instructions below for creating your first Air&hellip;
@@ -89,7 +89,7 @@ The second line shows that there is a game controller with the name <code>Saitek
 <li>Open that file in your preferred editor.</li>
 </ol>
 <p>At the top it contains some configuration you need to change:</p>
-<pre><code language="language-json">{ "defaults": {
+<pre><code class="language-json">{ "defaults": {
     "simulator": "fs2020"
   },
   "controllers": [ 
@@ -103,7 +103,7 @@ The second line shows that there is a game controller with the name <code>Saitek
 <ol start="27">
 <li>If you use <code>X-Plane</code> change the field value to “xpl”.</li>
 </ol>
-<pre><code language="language-json">{ "defaults": {
+<pre><code class="language-json">{ "defaults": {
     "simulator": "xpl"
       ...</code></pre>
 
@@ -112,7 +112,7 @@ The second line shows that there is a game controller with the name <code>Saitek
 <p>The field <code>controllers</code> is a list of controller specifications. </p>
 <p>A controller specification must identify the controller to use. This is specified in the <code>name</code> field. You need to set the <code>name</code> field to exactly the name shown in the log file.</p>
 <p>Assuming you use a Cyborg X Joystick:</p>
-<pre><code language="language-json">"controllers": [ 
+<pre><code class="language-json">"controllers": [ 
     { ...
       "name": "Cyborg X",
       ...</code></pre>
@@ -136,7 +136,7 @@ When set to <code>true</code> GCI will log certain events to the log file. </p>
 <li> Open the Air Manager log file in your editor.</li>
 </ol>
 <p>Example of a log file:</p>
-<pre><code language="language-json">... GCI: Game Controller 'Cyborg X' recognized.
+<pre><code class="language-json">... GCI: Game Controller 'Cyborg X' recognized.
 ... GCI: Controller 'Cyborg X' registered
 ...
 ... GCI: 'Cyborg X' called with: (0, 0, 0.0)
@@ -155,14 +155,14 @@ The second line indicates that the joystick is configured (registered).</p>
 <p>The third value (-0.017609180882573) ist the actual input value from the controller.</p>
 <p>We need the type and index value to configure our ailerons axis. </p>
 <p>As the type is ‘0’ we need to place the configuration in the “axis” field. </p>
-<p>The original configuration already cotains an entry for the index ‘0’ axis that does match what we need:</p>
-<pre><code language="language-json">      "axis": [ 
-        { "ignore": true,
+<p>The original configuration already cotains an entry for the index ‘0’ axis that does match what we need. Just set the two <code>ignore</code> attributes to <code>false</code>. </p>
+<pre><code class="language-json">      "axis": [ 
+        { "ignore": false,
           "log": true,
           "id": { "index": 0, "label": "JOY Stick Sideways" }, 
           "write": {
             "on_change": {
-              "ignore": true,
+              "ignore": false,
               "log": true,
               "variable": "AILERON POSITION",
               "unit": "Position"
@@ -170,7 +170,7 @@ The second line indicates that the joystick is configured (registered).</p>
           }  
         },</code></pre>
 
-<p>Just set the two <code>ignore</code> attributes to <code>false</code>. If you use another simulator than <code>MSFS2020</code> you need to change the “variable” and “unit” fields to the appropriate values:</p>
+<p>If you use another simulator than <code>MSFS2020</code> you need to change the “variable” and “unit” fields to the appropriate values for aileron movements.</p>
 
             ]]>
         </content>
