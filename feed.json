@@ -19,9 +19,12 @@
                 "name": "Cr4O13"
             },
             "tags": [
+                   "Responder",
+                   "Home",
+                   "GCI"
             ],
             "date_published": "2021-12-10T01:00:49+01:00",
-            "date_modified": "2021-12-10T01:02:09+01:00"
+            "date_modified": "2021-12-10T01:05:34+01:00"
         },
         {
             "id": "https://Cr4O13.github.io/support-for-response-presets.html",
@@ -38,7 +41,7 @@
                    "GCI"
             ],
             "date_published": "2021-12-09T23:06:16+01:00",
-            "date_modified": "2021-12-10T00:21:58+01:00"
+            "date_modified": "2021-12-10T01:05:49+01:00"
         }
     ]
 }
