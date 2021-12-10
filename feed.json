@@ -30,8 +30,8 @@
             "id": "https://Cr4O13.github.io/array-notation-in-responder-spec.html",
             "url": "https://Cr4O13.github.io/array-notation-in-responder-spec.html",
             "title": "Array Notation in Responder Spec",
-            "summary": "GCI Home supports the array notation also for responder specifications. A responder specification using the default JSON object notation may become a bit talkative. \"on_change\":&hellip;",
-            "content_html": "<p>GCI Home supports the array notation also for <code>responder</code> specifications.</p>\n<p>A <code>responder</code> specification using the default JSON object notation may become a bit talkative.</p>\n<pre><code class=\"language-json\">\"on_change\": { \n    \"variable\": \"GENERAL ENG THROTTLE LEVER POSITION:1\",\n    \"unit\": \"Percent\", \n    \"output\": \"invert\" \n}</code></pre>\n\n\n<h3 id=\"array-notation\">Array Notation</h3>\n<p>This can be abbreviated with the JSON array notation:</p>\n<pre><code class=\"language-json\">\"on_change\": [ \"GENERAL ENG THROTTLE LEVER POSITION:1\", \"Percent\", \"invert\" ]</code></pre>\n\n\n<p>Just make sure the values are listed in the proper order given below, and a value can only be omitted when it is the last in the sequence.</p>\n<h5 id=\"in-a-write-action\">In a <code>write</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, output, offset, force ]</li>\n<li>[ var_id, unit_id, output, offset ]</li>\n<li>[ var_id, unit_id, output ]</li>\n<li>[ var_id, unit_id ]</li>\n</ul>\n<h5 id=\"in-a-publish-action\">In a <code>publish</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, initial, output ]</li>\n<li>[ var_id, unit_id, initial ]</li>\n<li>[ var_id, unit_id ]</li>\n<li>[ var_id ]</li>\n</ul>\n<h5 id=\"in-a-send-action\">In a <code>send</code> Action</h5>\n<ul>\n<li>[ var_id, output ]</li>\n<li>[ var_id ]</li>\n</ul>\n<p>Omitted values are replaced with default values by GCI.</p>\n<h3 id=\"simple-form\">Simple Form</h3>\n<p>An array with just a single <code>var_id</code> can be simplified for an even shorter form:</p>\n<p>Instead of writing</p>\n<pre><code class=\"language-json\">\"on_true\": [ \"AP_MASTER\" ]</code></pre>\n\n<p>just write</p>\n<pre><code class=\"language-json\">\"on_true\": \"AP_MASTER\"</code></pre>\n\n",
+            "summary": "<p>GCI Home supports the array notation also for <code>responder</code> specifications.</p>\n<p>A <code>responder</code> specification using the default JSON object notation may become a bit talkative.",
+            "content_html": "<p>GCI Home supports the array notation also for <code>responder</code> specifications.</p>\n<p>A <code>responder</code> specification using the default JSON object notation may become a bit talkative.<hr id=\"read-more\" /></p>\n<pre><code class=\"language-json\">\"on_change\": { \n    \"variable\": \"GENERAL ENG THROTTLE LEVER POSITION:1\",\n    \"unit\": \"Percent\", \n    \"output\": \"invert\" \n}</code></pre>\n\n\n<h3 id=\"array-notation\">Array Notation</h3>\n<p>This can be abbreviated with the JSON array notation:</p>\n<pre><code class=\"language-json\">\"on_change\": [ \"GENERAL ENG THROTTLE LEVER POSITION:1\", \"Percent\", \"invert\" ]</code></pre>\n\n\n<p>Just make sure the values are listed in the proper order given below, and a value can only be omitted when it is the last in the sequence.</p>\n<h5 id=\"in-a-write-action\">In a <code>write</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, output, offset, force ]</li>\n<li>[ var_id, unit_id, output, offset ]</li>\n<li>[ var_id, unit_id, output ]</li>\n<li>[ var_id, unit_id ]</li>\n</ul>\n<h5 id=\"in-a-publish-action\">In a <code>publish</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, initial, output ]</li>\n<li>[ var_id, unit_id, initial ]</li>\n<li>[ var_id, unit_id ]</li>\n<li>[ var_id ]</li>\n</ul>\n<h5 id=\"in-a-send-action\">In a <code>send</code> Action</h5>\n<ul>\n<li>[ var_id, output ]</li>\n<li>[ var_id ]</li>\n</ul>\n<p>Omitted values are replaced with default values by GCI.</p>\n<h3 id=\"simple-form\">Simple Form</h3>\n<p>An array with just a single <code>var_id</code> can be simplified for an even shorter form:</p>\n<p>Instead of writing</p>\n<pre><code class=\"language-json\">\"on_true\": [ \"AP_MASTER\" ]</code></pre>\n\n<p>just write</p>\n<pre><code class=\"language-json\">\"on_true\": \"AP_MASTER\"</code></pre>\n\n",
             "author": {
                 "name": "Cr4O13"
             },
@@ -41,7 +41,7 @@
                    "GCI"
             ],
             "date_published": "2021-12-10T01:00:49+01:00",
-            "date_modified": "2021-12-10T15:46:28+01:00"
+            "date_modified": "2021-12-10T22:04:29+01:00"
         },
         {
             "id": "https://Cr4O13.github.io/support-for-response-presets.html",
@@ -58,7 +58,7 @@
                    "GCI"
             ],
             "date_published": "2021-12-09T23:06:16+01:00",
-            "date_modified": "2021-12-10T15:42:55+01:00"
+            "date_modified": "2021-12-10T22:04:46+01:00"
         }
     ]
 }
