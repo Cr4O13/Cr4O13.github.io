@@ -3,7 +3,7 @@
     <title>Cr4O13</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-10T20:59:40+01:00</updated>
+    <updated>2021-12-10T21:17:54+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -16,8 +16,11 @@
         </author>
         <link href="https://Cr4O13.github.io/start-with-gci-from-cold-and-dark.html"/>
         <id>https://Cr4O13.github.io/start-with-gci-from-cold-and-dark.html</id>
+            <category term="Setup"/>
+            <category term="Home"/>
+            <category term="GCI"/>
 
-        <updated>2021-12-10T20:59:40+01:00</updated>
+        <updated>2021-12-10T21:17:54+01:00</updated>
             <summary>
                 <![CDATA[
                     If you have no clue how to get started with GCI, this might be for you. Follow the instructions below for creating your first Air&hellip;

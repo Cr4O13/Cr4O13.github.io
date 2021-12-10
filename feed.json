@@ -19,9 +19,12 @@
                 "name": "Cr4O13"
             },
             "tags": [
+                   "Setup",
+                   "Home",
+                   "GCI"
             ],
             "date_published": "2021-12-10T17:03:29+01:00",
-            "date_modified": "2021-12-10T20:59:40+01:00"
+            "date_modified": "2021-12-10T21:17:54+01:00"
         },
         {
             "id": "https://Cr4O13.github.io/array-notation-in-responder-spec.html",
