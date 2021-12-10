@@ -23,7 +23,7 @@
         <updated>2021-12-10T01:05:34+01:00</updated>
             <summary>
                 <![CDATA[
-                    GCI Home supports the array notation also for responder specifications. A responder specification using the default JSON object notation may become a bit talkative. &quot;on_change&quot;: { &quot;variable&quot;: &quot;GENERAL ENG THROTTLE LEVER POSITION:1&quot;, &quot;unit&quot;: &quot;Percent&quot;, &quot;output&quot;: &quot;invert&quot; } Array Notation This can be abbreviated with the&hellip;
+                    GCI Home supports the array notation also for responder specifications. A responder specification using the default JSON object notation may become a bit talkative. &quot;on_change&quot;:&hellip;
                 ]]>
             </summary>
         <content type="html">
@@ -87,7 +87,7 @@
         <updated>2021-12-10T01:05:49+01:00</updated>
             <summary>
                 <![CDATA[
-                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses and help keeping the axis configuration readable. Before BETA 7 an axis output response had to be defined literally in&hellip;
+                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses&hellip;
                 ]]>
             </summary>
         <content type="html">
