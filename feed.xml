@@ -3,7 +3,7 @@
     <title>Cr4O13</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-10T22:04:46+01:00</updated>
+    <updated>2021-12-10T22:05:35+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -20,18 +20,16 @@
             <category term="Home"/>
             <category term="GCI"/>
 
-        <updated>2021-12-10T22:03:10+01:00</updated>
+        <updated>2021-12-10T22:05:35+01:00</updated>
             <summary>
                 <![CDATA[
                     <p>If you have no clue how to get started with GCI, this might be for you.</p>
-<h2 id="step-by-step-instructions">Step by Step Instructions</h2>
 <p>Follow the instructions below for creating your first <code>Air Manager</code> panel with GCI Lite. 
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                 <p>If you have no clue how to get started with GCI, this might be for you.</p>
-<h2 id="step-by-step-instructions">Step by Step Instructions</h2>
 <p>Follow the instructions below for creating your first <code>Air Manager</code> panel with GCI Lite. <hr id="read-more" /> It will take some time to work through it. Don’t take shortcuts, follow all the steps.</p>
 <h3 id="download-the-latest-release">Download the Latest Release</h3>
 <ol>
