@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://Cr4O13.github.io/array-notation-in-responder-spec.html",
+            "url": "https://Cr4O13.github.io/array-notation-in-responder-spec.html",
+            "title": "Array Notation in Responder Spec",
+            "summary": "GCI Home supports the array notation also for responder specifications. A responder specification using the default JSON object notation may become a bit talkative. &quot;on_change&quot;: { &quot;variable&quot;: &quot;GENERAL ENG THROTTLE LEVER POSITION:1&quot;, &quot;unit&quot;: &quot;Percent&quot;, &quot;output&quot;: &quot;invert&quot; } Array Notation This can be abbreviated with the&hellip;",
+            "content_html": "<p>GCI Home supports the array notation also for <code>responder</code> specifications.</p>\n<p>A <code>responder</code> specification using the default JSON object notation may become a bit talkative.</p>\n<pre><code>  &quot;on_change&quot;: { \n    &quot;variable&quot;: &quot;GENERAL ENG THROTTLE LEVER POSITION:1&quot;,\n    &quot;unit&quot;: &quot;Percent&quot;, \n    &quot;output&quot;: &quot;invert&quot; \n  }\n</code></pre>\n<h3 id=\"array-notation\">Array Notation</h3>\n<p>This can be abbreviated with the JSON array notation:</p>\n<pre><code>  &quot;on_change&quot;: [ &quot;GENERAL ENG THROTTLE LEVER POSITION:1&quot;, &quot;Percent&quot;, &quot;invert&quot; ]\n</code></pre>\n<p>Just make sure the values are listed in the proper order given below, and a value can only be omitted when it is the last in the sequence.</p>\n<h5 id=\"in-a-write-action\">In a <code>write</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, output, offset, force ]</li>\n<li>[ var_id, unit_id, output, offset ]</li>\n<li>[ var_id, unit_id, output ]</li>\n<li>[ var_id, unit_id ]</li>\n</ul>\n<h5 id=\"in-a-publish-action\">In a <code>publish</code> Action</h5>\n<ul>\n<li>[ var_id, unit_id, initial, output ]</li>\n<li>[ var_id, unit_id, initial ]</li>\n<li>[ var_id, unit_id ]</li>\n<li>[ var_id ]</li>\n</ul>\n<h5 id=\"in-a-send-action\">In a <code>send</code> Action</h5>\n<ul>\n<li>[ var_id, output ]</li>\n<li>[ var_id ]</li>\n</ul>\n<p>Omitted values are replaced with default values by GCI.</p>\n<h3 id=\"simple-form\">Simple Form</h3>\n<p>An array with just a single <code>var_id</code> can be simplified for an even shorter form:</p>\n<p>Instead of writing</p>\n<pre><code>  &quot;on_true&quot;: [ &quot;AP_MASTER&quot; ]\n</code></pre>\n<p>just write</p>\n<pre><code>  &quot;on_true&quot;: &quot;AP_MASTER&quot;\n</code></pre>\n",
+            "author": {
+                "name": "Cr4O13"
+            },
+            "tags": [
+            ],
+            "date_published": "2021-12-10T01:00:49+01:00",
+            "date_modified": "2021-12-10T01:02:09+01:00"
+        },
+        {
             "id": "https://Cr4O13.github.io/support-for-response-presets.html",
             "url": "https://Cr4O13.github.io/support-for-response-presets.html",
             "title": "Support for Response Presets",
