@@ -22,7 +22,7 @@
         <updated>2021-12-11T11:23:00+01:00</updated>
             <summary>
                 <![CDATA[
-                    Air Manager is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it&hellip;
+                    Air Manager is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it provides a scripting environment through&hellip;
                 ]]>
             </summary>
         <content type="html">
@@ -330,7 +330,7 @@ The second line indicates that the joystick is configured (registered).</p>
         <updated>2021-12-10T22:04:46+01:00</updated>
             <summary>
                 <![CDATA[
-                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses&hellip;
+                    GCI Home v1.0 BETA 7 introduces ‘Response Presets’ to simplify the configuration of an axis with output response specifications. Response presets support reuse of responses and help keeping the axis&hellip;
                 ]]>
             </summary>
         <content type="html">
