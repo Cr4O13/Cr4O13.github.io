@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Variables in LUA - Cr4O13</title><meta name="description" content="In LUA, variables have no special meaning. They do not have a type associated with them. Only the values you assign have a type. The names, some call them identifiers,&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://Cr4O13.github.io/variables-in-lua.html"><meta property="og:title" content="Variables in LUA"><meta property="og:site_name" content="Cr4O13"><meta property="og:description" content="In LUA, variables have no special meaning. They do not have a type associated with them. Only the values you assign have a type. The names, some call them identifiers,&hellip;"><meta property="og:url" content="https://Cr4O13.github.io/variables-in-lua.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://Cr4O13.github.io/assets/css/style.css?v=052e3faa1c5019752487a567f5cc33f9"><link rel="stylesheet" href="https://Cr4O13.github.io/assets/css/prism-original.css?v=8e39bda621bd1b6539e922224d50de9b"><link rel="stylesheet" href="https://Cr4O13.github.io/assets/css/docsearch.css?v=0407a7a131feaf753e76cd9d86149dc2"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://Cr4O13.github.io/variables-in-lua.html"},"headline":"Variables in LUA","datePublished":"2021-12-11T13:49","dateModified":"2021-12-11T13:54","description":"In LUA, variables have no special meaning. They do not have a type associated with them. Only the values you assign have a type. The names, some call them identifiers,&hellip;","author":{"@type":"Person","name":"Cr4O13"},"publisher":{"@type":"Organization","name":"Cr4O13"}}</script></head><body><header class="header" id="js-header"><a class="logo" href="https://Cr4O13.github.io/">Cr4O13</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://Cr4O13.github.io/" target="_self">News</a></li><li class="has-submenu"><span class="is-separator" aria-haspopup="true">Projects</span><ul class="navbar__submenu" aria-hidden="true"><li><a href="https://Cr4O13.github.io/tags/gci/" target="_self">GCI</a></li></ul></li><li class="has-submenu"><span class="is-separator" aria-haspopup="true">Good Practices</span><ul class="navbar__submenu" aria-hidden="true"><li><a href="https://Cr4O13.github.io/tags/lua/" target="_self">LUA</a></li></ul></li><li><a href="https://github.com/Cr4O13/gci-docs/wiki">Wiki</a></li><li><a href="https://Cr4O13.github.io/authors/cr4o13/" target="_self">Author</a></li></ul></nav></header><main><div class="container container--with-sidebar"><div class="sidebar js-sidebar"><div class="sidebar__search"><input type="search" placeholder="search..." aria-label="Search" id="docsearch-input" class="js-search"></div></div><div class="content content--left"><article class="post post-blog"><header class="post-blog__header"><h1>Variables in LUA</h1><ul class="post-blog__meta"><li><address class="post-blog__author"><a rel="author" href="https://Cr4O13.github.io/authors/cr4o13/">Cr4O13</a></address></li><li><time datetime="2021-12-11T13:54">December 11, 2021</time></li><li>Published in: <a href="https://Cr4O13.github.io/tags/air-manager/" class="post-blog__tag">Air Manager</a></li></ul></header><div class="post__entry"><p>In LUA, variables have no special meaning. They do not have a type associated with them. Only the values you assign have a type.</p><h2 id="variables-have-names">Variables have Names</h2><p>The names, some call them <code>identifiers</code>, can be any string of <code>letters</code>, <code>digits</code>, and <code>underscores</code>. But that string may not begin with a digit.</p><pre><code class="language-lua">i, b10, index, MAXCOUNT, showImage, number_list, c2d2, _selected, _</code></pre><p>are all valid names for variables.</p><p>The names starting with an underscore followed by one or more upper case letters, e.g. <code>_ENV</code>, should be avoided, as they are used by LUA itself.</p><p>The single underscore <code>_</code> is a valid name but used as dummy variable by convention.</p><p>LUA is case-sensitive. That means the names</p><pre><code class="language-lua">maxcount, MaxCount, MAXCOUNT</code></pre><p>identify different variables. So be consistent with your style of naming variables.</p><h2 id="variables-have-scope">Variables have Scope</h2><p>The Scope defines the section of your code where access to the variable is valid. Variables can have either a <code>global</code> scope or a <code>local</code> scope.</p><h3 id="global-scope">Global Scope</h3><p>You cannot declare a variable as <code>global</code>. In LUA variables are <code>global</code> by default.</p><p>But <code>global</code> only means inside the environment of the instrument script (see <a href="https://cr4o13.github.io/the-lua-environment-in-air-manager.html">my post about the LUA environment</a>), not globally shared between different environments/instruments.</p><p>You dont even need to declare the variable in your code. Just use it, as if it were already declared for you. Lua will look up its value from the environment. If it is not defined in the environment, it evaluates to <code>nil</code>.</p><p>There will never be exceptions when accessing undeclared variables.</p><h3 id="local-scope">Local Scope</h3><p>A variable with <code>local</code> scope is only valid in a part of your code. To use <code>local</code> variables, you need to declare them explicitly as <code>local</code>.</p><p>But some variables are local by “nature” like <code>formal parameters</code> or <code>loop variables</code>.</p><h3 id="formal-parameters">Formal Parameters</h3><p>A variable specified as a formal parameter of a function is <code>local</code> to the function. The scope begins after the parameter declaration and ends at the function ‘end’.</p><pre><code class="language-lua">local gbl_fsx_hours = 0
+...
+local flight_time_fs2020 = function ( hours )
+    gbl_fsx_hours = hours
+    flight_time( hours * 60 * 60, 0 )
+end</code></pre><p>Here the scope of the formal parameter <code>hours</code> is the function block until the <code>end</code>. After the function returns, the variable is <code>out of scope</code>.</p><p>The scope of the variable <code>gbl_fsx_hours</code> starts from after its declaration outside the function and continues througout the function</p><h3 id="loop-variables">Loop Variables</h3><p>In a <code>for</code> loop the loop variables are <code>local</code> to the loop. The scope begins after the <code>do</code> and ends at the loop ‘end’.</p><pre><code class="language-lua">local scale = 100
+local settings = {}
+...
+for p1, p2 in pairs( points ) do
+    settings[ #settings + 1 ] = { p1, scale * p2 }
+end</code></pre><p>Here the scope of the loop variables <code>p1</code> and <code>p2</code> is the for loop until the <code>end</code>. After the function returns, the variables are <code>out of scope</code>.</p><p>The scope of the variables <code>scale</code> and <code>settings</code> starts from after its declaration outside the function and continues througout the function until th econtaining block ends.</p><h2 id="why-use-local-variables">Why Use Local Variables?</h2><p>It is <code>Good Coding Practice</code> to use <code>local</code> variables because</p><ul><li>You have control over the scope. A <code>local</code> declaration conveys the image, that you know what you are doing.</li><li>Access to <code>local</code> variables is faster. They are kept on the stack. No look up in the environment is required.</li><li>The memory space used by a local variable will get recovered by garbage collection automatically after the variable goes <code>out of scope</code> .</li></ul><footer><dl class="post__tag post-blog__tag"><dt>Tags:</dt><dd><a href="https://Cr4O13.github.io/tags/air-manager/" title="Air Manager">Air Manager</a></dd><dd><a href="https://Cr4O13.github.io/tags/lua/" title="Lua">Lua</a></dd><dd><a href="https://Cr4O13.github.io/tags/variables/" title="Variables">Variables</a></dd></dl><nav><ul class="post__nav"><li class="post__nav-prev">Prev: <a href="https://Cr4O13.github.io/the-lua-environment-in-air-manager.html" rel="prev" title="The LUA Environment in Air Manager">The LUA Environment in Air Manager</a></li></ul></nav></footer></div></article><div class="comments"><h3>Comments</h3><div id="disqus_thread"></div><script>var disqus_config = function () {
+                          this.page.url = 'https://Cr4O13.github.io/variables-in-lua.html';
+                          this.page.identifier = '5';
+                      };
+                      var disqus_element_to_check = document.getElementById('disqus_thread');
+                  
+                      if ('IntersectionObserver' in window) {
+                          var iObserver = new IntersectionObserver(
+                              (entries, observer) => {
+                                  entries.forEach(entry => {
+                                      if (entry.intersectionRatio >= 0.1) {
+                                          (function () {
+                                              var d = document, s = d.createElement('script');
+                                              s.src = 'https://'+''.trim()+'.disqus.com/embed.js';
+                                              s.setAttribute('data-timestamp', +new Date());
+                                              (d.head || d.body).appendChild(s);
+                                          })();
+                                          observer.unobserve(entry.target);
+                                      }
+                                  });
+                              },
+                              {
+                                  threshold: [0, 1]
+                              }
+                          );
+                  
+                          iObserver.observe(disqus_element_to_check);
+                      } else {
+                          (function () {
+                              var d = document, s = d.createElement('script');
+                              s.src = 'https://'+''.trim()+'.disqus.com/embed.js';
+                              s.setAttribute('data-timestamp', +new Date());
+                              (d.head || d.body).appendChild(s);
+                          })();
+                      }</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div></div></main><footer class="footer"><div><a class="footer__logo" href="https://Cr4O13.github.io/">Cr4O13</a></div><div><div class="footer__copy">Powered by GitHub and Publii</div><div class="footer__social"></div></div></footer><script>window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true
+   };</script><script defer="defer" src="https://Cr4O13.github.io/assets/js/scripts.min.js?v=316b752cd7700a18978b2dda908a9f5e"></script><script>var images = document.querySelectorAll('img[loading]');
+
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><script defer="defer" src="https://Cr4O13.github.io/assets/js/prism.js?v=3f40a85448916137440d70109f6ef21e"></script><script defer="defer" src="https://Cr4O13.github.io/assets/js/prism-copy-to-clipboard.min.js?v=fabfc3fd9af83cda5208ba2e9f9ed238"></script><script src="https://Cr4O13.github.io/assets/js/docsearch.min.js?v=9db7c9eaa8e736ce16840e5bbc02047b"></script><script>docsearch({
+                        apiKey: '',
+                        indexName: '',
+                        inputSelector: '#docsearch-input',
+                        debug: false
+                });</script></body></html>
