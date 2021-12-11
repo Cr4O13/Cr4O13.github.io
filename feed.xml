@@ -3,7 +3,7 @@
     <title>Cr4O13</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-11T11:14:47+01:00</updated>
+    <updated>2021-12-11T11:23:00+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
@@ -19,7 +19,7 @@
             <category term="Lua"/>
             <category term="Air Manager"/>
 
-        <updated>2021-12-11T11:14:47+01:00</updated>
+        <updated>2021-12-11T11:23:00+01:00</updated>
             <summary>
                 <![CDATA[
                     Air Manager is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it&hellip;
@@ -30,19 +30,19 @@
                 <p><code>Air Manager</code> is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it provides a scripting environment through embedding the LUA programming language.</p>
 <p>Each instrument script code is basically contained in a file named <code>logic.lua</code>. LUA calls it a <code>chunk</code> but we stay with <code>script</code> throughout this post.</p>
 <h2 id="the-instrument-script-runs-in-a-sandbox">The Instrument Script runs in a Sandbox</h2>
-<p>Each instrument script  is executed in its own environment. Any bug/error in one instrument can not affect other instruments. On the other hand it means you can not easily share state/data between instruments.  This is called <code>sandboxing</code>.</p>
-<p>This environment is created by Air Manager, before it sarts to execute the instrument script.</p>
+<p>Each instrument script  is executed in its own environment. Any bug/error in one instrument cannot affect other instruments. On the other hand, it means you cannot easily share state/data between instruments.  This is called <code>sandboxing</code>.</p>
+<p>This environment is created by Air Manager, before it starts to execute the instrument script.</p>
 <h2 id="what-is-the-content-of-the-environment">What is The Content of the Environment?</h2>
-<p>Each script can only use what the environment provides. Air Manager on the one hand restricts what a plain LUA system would provide. On the other hand it provides additional features that would not be available in a plain LUA system.</p>
-<p>Basically the instrument environment provides</p>
+<p>Each script can only use what the environment provides. Air Manager on the one hand restricts what a plain LUA system would provide. On the other hand, it provides additional features that would not be available in a plain LUA system.</p>
+<p>Basically, the instrument environment provides</p>
 <ul>
-<li>the LUA version number,</li>
+<li>the LUA version info,</li>
 <li>most LUA built-in basic functions,</li>
 <li>the functionality from some LUA standard libraries,</li>
 <li>the Air Manager API functionality and</li>
 <li>additional helper library functions</li>
 </ul>
-<p>The version number is assigned to the global variable <code>_VERSION</code>.</p>
+<p>The version info is assigned to the global variable <code>_VERSION</code>.</p>
 <p>You can get the version info through printing the variables value in the script:</p>
 <pre><code class="language-lua">print(_VERSION)</code></pre>
 
@@ -69,7 +69,7 @@
 <li><a href="http://www.lua.org/manual/5.3/manual.html#6.10" target=_blank>debug</a> and</li>
 <li><a href="http://www.lua.org/manual/5.3/manual.html#6.5" target=_blank>utf8</a>.</li>
 </ul>
-<p>The <code>io</code> library would allow access to the device/file system. To achieve platform independence Air Manager does not include the library in the environment. Instead it provides a restricted set of functions for persisting state to and loading specific data formats from defined storage locations.</p>
+<p>The <code>io</code> library would allow access to the device/file system. To achieve platform independence, Air Manager does not include the library in the environment. Instead, it provides a restricted set of functions for persisting state to and loading specific data formats from defined storage locations.</p>
 <p>The <code>package</code> library is also not available because it would allow to load external library code and therefore circumvent the restrictions given above. But it means it is not possible to build modular scripts, using the <code>require</code> statement.</p>
 <p>The <code>debug</code> library is not available as well. Probably because it would allow access to the internals of Air Manager. As an alternative Air Manager provides an integrated debugger in its IDE.</p>
 <p>Then <code>utf8</code> is also not supported. I assume because it is not required in a closed system like Air Manager.</p>
