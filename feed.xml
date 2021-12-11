@@ -3,12 +3,83 @@
     <title>Cr4O13</title>
     <link href="https://Cr4O13.github.io/feed.xml" rel="self" />
     <link href="https://Cr4O13.github.io" />
-    <updated>2021-12-10T22:05:35+01:00</updated>
+    <updated>2021-12-11T11:14:47+01:00</updated>
     <author>
         <name>Cr4O13</name>
     </author>
     <id>https://Cr4O13.github.io</id>
 
+    <entry>
+        <title>The LUA Environment in Air Manager</title>
+        <author>
+            <name>Cr4O13</name>
+        </author>
+        <link href="https://Cr4O13.github.io/the-lua-environment-in-air-manager.html"/>
+        <id>https://Cr4O13.github.io/the-lua-environment-in-air-manager.html</id>
+            <category term="Lua"/>
+            <category term="Air Manager"/>
+
+        <updated>2021-12-11T11:14:47+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Air Manager is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p><code>Air Manager</code> is an application which allows to create your own 2D instrument panels for a variety of flight simulators. For the application user it provides a scripting environment through embedding the LUA programming language.</p>
+<p>Each instrument script code is basically contained in a file named <code>logic.lua</code>. LUA calls it a <code>chunk</code> but we stay with <code>script</code> throughout this post.</p>
+<h2 id="the-instrument-script-runs-in-a-sandbox">The Instrument Script runs in a Sandbox</h2>
+<p>Each instrument script  is executed in its own environment. Any bug/error in one instrument can not affect other instruments. On the other hand it means you can not easily share state/data between instruments.  This is called <code>sandboxing</code>.</p>
+<p>This environment is created by Air Manager, before it sarts to execute the instrument script.</p>
+<h2 id="what-is-the-content-of-the-environment">What is The Content of the Environment?</h2>
+<p>Each script can only use what the environment provides. Air Manager on the one hand restricts what a plain LUA system would provide. On the other hand it provides additional features that would not be available in a plain LUA system.</p>
+<p>Basically the instrument environment provides</p>
+<ul>
+<li>the LUA version number,</li>
+<li>most LUA built-in basic functions,</li>
+<li>the functionality from some LUA standard libraries,</li>
+<li>the Air Manager API functionality and</li>
+<li>additional helper library functions</li>
+</ul>
+<p>The version number is assigned to the global variable <code>_VERSION</code>.</p>
+<p>You can get the version info through printing the variables value in the script:</p>
+<pre><code class="language-lua">print(_VERSION)</code></pre>
+
+<p>The value shown in the Air Manager 4.1 <code>Console</code> view is <code>Lua 5.3</code>.</p>
+<h3 id="lua-built-in-functions">LUA Built-In Functions</h3>
+<p>Air Manager provides all <a href="http://www.lua.org/manual/5.3/manual.html#6.1" target=_blank>LUA built-in functions</a> except</p>
+<ul>
+<li>require()</li>
+</ul>
+<p>The function <code>require()</code> is disabled as it depends on the <code>package</code> library which is not available. See below.</p>
+<h3 id="restricted-access-to-lua-standard-libraries">Restricted Access to LUA Standard Libraries</h3>
+<p>Air Manager provides only access to functions from the LUA standard libraries</p>
+<ul>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.9" target=_blank>os</a>,</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.4" target=_blank>string</a>,</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.7" target=_blank>math</a>,</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.6" target=_blank>table</a> and</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.2" target=_blank>coroutine</a>.</li>
+</ul>
+<p>Air Manager does not support access to the LUA standard libraries </p>
+<ul>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.8" target=_blank>io</a>,</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.3" target=_blank>package</a>,</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.10" target=_blank>debug</a> and</li>
+<li><a href="http://www.lua.org/manual/5.3/manual.html#6.5" target=_blank>utf8</a>.</li>
+</ul>
+<p>The <code>io</code> library would allow access to the device/file system. To achieve platform independence Air Manager does not include the library in the environment. Instead it provides a restricted set of functions for persisting state to and loading specific data formats from defined storage locations.</p>
+<p>The <code>package</code> library is also not available because it would allow to load external library code and therefore circumvent the restrictions given above. But it means it is not possible to build modular scripts, using the <code>require</code> statement.</p>
+<p>The <code>debug</code> library is not available as well. Probably because it would allow access to the internals of Air Manager. As an alternative Air Manager provides an integrated debugger in its IDE.</p>
+<p>Then <code>utf8</code> is also not supported. I assume because it is not required in a closed system like Air Manager.</p>
+<h2 id="the-air-manager-api">The Air Manager API</h2>
+<p>Air Manager provides an extensive API. It comprises almost 300 functions covering all aspects of instrument building, communication with the simulators, support for hardware devices like Arduino, Raspberry Pico, ESP32 and more.</p>
+<p>There is a extensive documentation available on the <a href="https://siminnovations.com/wiki/index.php?title=Air_Manager_Instrument_Logic_API" target=_blank>SimInnovations WIKI API page</a>. </p>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>A Start with GCI from &#x27;Cold and Dark&#x27;</title>
         <author>
